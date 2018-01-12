@@ -1,0 +1,27 @@
+h1 Listing tasks
+
+table
+  thead
+    tr
+      th Text
+      th Status
+      th User
+      th Progect
+      th
+      th
+      th
+
+  tbody
+    - @tasks.each do |task|
+      tr
+        td = task.text
+        td = task.status
+        td = task.user_id
+        td = task.progect_id
+        td = link_to 'Show', task
+        td = link_to 'Edit', edit_task_path(task)
+        td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Task', new_task_path

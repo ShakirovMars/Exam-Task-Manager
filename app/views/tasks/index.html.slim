@@ -6,7 +6,7 @@ table
       th Text
       th Status
       th User
-      th Progect
+      th Project
       th
       th
       th
@@ -17,7 +17,7 @@ table
         td = task.text
         td = task.status
         td = task.user_id
-        td = task.progect_id
+        td = task.project_id
         td = link_to 'Show', task
         td = link_to 'Edit', edit_task_path(task)
         td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete

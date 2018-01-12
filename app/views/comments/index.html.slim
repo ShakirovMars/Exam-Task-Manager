@@ -5,6 +5,7 @@ table
     tr
       th Text
       th User
+      th Task
       th
       th
       th
@@ -14,6 +15,7 @@ table
       tr
         td = comment.text
         td = comment.user_id
+        td = comment.task_id
         td = link_to 'Show', comment
         td = link_to 'Edit', edit_comment_path(comment)
         td = link_to 'Destroy', comment, data: { confirm: 'Are you sure?' }, method: :delete

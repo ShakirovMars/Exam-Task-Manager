@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration[5.1]
       t.text :text
       t.boolean :status
       t.integer :user_id
-      t.integer :progect_id
+      t.integer :project_id
 
       t.timestamps
     end

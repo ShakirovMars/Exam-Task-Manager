@@ -13,9 +13,7 @@
     = f.label :status
     = f.check_box :status
   .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
     = f.label :project_id
-    = f.number_field :project_id
+    = f.select :project_id,  options_for_select(current_user.projects.map{|project| [project.name, project.id] })
   .actions = f.submit
+

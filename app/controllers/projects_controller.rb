@@ -13,11 +13,7 @@ class ProjectsController < ApplicationController
   def show
   end
 
-  # GET /projects/new
-  def new
-    @project = Project.new
-  end
-
+ 
   # GET /projects/1/edit
   def edit
   end
@@ -30,13 +26,8 @@ class ProjectsController < ApplicationController
     @project.save
 
     respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to projects_path }
+      format.js
     end
   end
 
@@ -59,8 +50,8 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to projects_path }
+      format.js 
     end
   end
 

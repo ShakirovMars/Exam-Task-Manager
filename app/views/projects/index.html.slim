@@ -1,23 +1,16 @@
-h1 Listing projects
+.row
+  .col-md-6.col-xl-6.col-lg-6.col-md-offset-3
+    h1.text-center Мои проекты
 
-table
-  thead
-    tr
-      th Name
-      th User
-      th
-      th
-      th
+    = render "new_form"
 
-  tbody
-    - @projects.each do |project|
-      tr
-        td = project.name
-        td = project.user_id
-        td = link_to 'Show', project
-        td = link_to 'Edit', edit_project_path(project)
-        td = link_to 'Destroy', project, data: { confirm: 'Are you sure?' }, method: :delete
+    .projects
+      table.table.table-striped
+        thead
+          tr
+            th Название проекта
+            th
+            th
 
-br
-
-= link_to 'New Project', new_project_path
+        tbody.project 
+          = render @projects

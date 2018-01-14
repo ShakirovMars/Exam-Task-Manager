@@ -12,7 +12,7 @@ module Api
 
         def destroy
             @project = @current_user.projects.find_by(params[:id])
-            if @project
+            if @project.tasks.length == null
                 @project.destroy
             else
               render json: {post: "not found"}, status: :not_found

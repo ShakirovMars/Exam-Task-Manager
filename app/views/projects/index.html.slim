@@ -9,8 +9,10 @@
         thead
           tr
             th Название проекта
-            th
+            th 
             th
 
         tbody.project 
           = render @projects
+
+    =< link_to 'Мои задачи', tasks_path

@@ -1,18 +1,29 @@
-p#notice = notice
+.row
+  .col-md-6.col-xl-6.col-lg-6.col-md-offset-3
+    h1.text-center Просмотр задачи
 
-p
-  strong Text:
-  = @task.text
-p
-  strong Status:
-  = @task.status
-p
-  strong User:
-  = @task.user_id
-p
-  strong Project:
-  = @task.project_id
+    .tasks
+      table.table.table-striped
+        thead
+          tr
+            th Текст
+            th Статус
+            th Проект
+            th
+            th
+            th
 
-=> link_to 'Edit', edit_task_path(@task)
-'|
-=< link_to 'Back', tasks_path
+        tbody
+          tbody.task 
+            = render @task
+.row
+  .col-md-6.col-xl-6.col-lg-6.col-md-offset-3
+    h1.text-center Комментарии
+
+    .comments
+      = render  partial:"comments/comment", collection: @task.comments, as: :comment
+
+    .comment-form
+      = render partial:"comments/form", object: @task
+
+    =< link_to 'Все задачи', tasks_path

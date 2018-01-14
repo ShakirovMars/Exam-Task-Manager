@@ -1,10 +1,12 @@
-= simple_form_for @task, remote: true do |form|
+= simple_form_for Task.new, remote: true do |form|
     .form-group
         =form.label action="text"
-        =form.text_area :text, label: true, placeholder: "Задача", :class => "form-control"
+        =form.text_area :text, label: true, placeholder: "Задача", class:"form-control"
     .form-group
         =form.label action="status"
         =form.check_box :status
-    .form-group    
+    .form-group
         =form.label action="project_id"
         =form.select(:project_id, options_for_select(current_user.projects.map{|project| [project.name, project.id]}),{}, { :class => 'form-control' })
+    .form-group
+        =form.button type="submit", class: "btn btn-primary", value: "Создать"

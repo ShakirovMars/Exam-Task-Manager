@@ -1,27 +1,19 @@
-h1 Listing tasks
+.row
+  .col-md-6.col-xl-6.col-lg-6.col-md-offset-3
+    h1.text-center Задачи
 
-table
-  thead
-    tr
-      th Text
-      th Status
-      th User
-      th Project
-      th
-      th
-      th
+    = render "new_form"
 
-  tbody
-    - @tasks.each do |task|
-      tr
-        td = task.text
-        td = task.status
-        td = task.user_id
-        td = task.project_id
-        td = link_to 'Show', task
-        td = link_to 'Edit', edit_task_path(task)
-        td = link_to 'Destroy', task, method: :delete
+    .tasks
+      table.table.table-striped
+        thead
+          tr
+            th Текст
+            th Статус
+            th Проект
+            th
+            th
 
-br
-
-= link_to 'New Task', new_task_path
+        tbody
+          tbody.task 
+            = render @tasks

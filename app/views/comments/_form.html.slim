@@ -1,15 +1,7 @@
-= form_for @comment do |f|
-  - if @comment.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
-      ul
-        - @comment.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :text
-    = f.text_area :text
-  .field
-  = f.label :task_id
-  = f.number_field :task_id
-  .actions = f.submit
+= simple_form_for Comment.new, remote: true do |form|
+  .form-group
+    =form.label action="text"
+    =form.text_area :text, label: true, placeholder: "Комментарий", :class => "form-control"
+    =form.text_field :task_id, hidden: true, value: @task.id
+  .form-group
+    =form.button type="submit", class: "btn btn-primary", value:  "Оставить комментарий"

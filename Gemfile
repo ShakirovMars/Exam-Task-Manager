@@ -23,6 +23,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'draper'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'rails_admin', '~> 1.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

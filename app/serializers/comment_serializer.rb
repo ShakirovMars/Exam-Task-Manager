@@ -1,3 +1,3 @@
-class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :text, :user_id, :task_id
+class CommentSerializer < ApplicationSerializer
+  attributes :id, :text, :user_id
 end

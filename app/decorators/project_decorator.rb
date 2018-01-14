@@ -1,13 +1,12 @@
-class ProjectDecorator < Draper::Decorator
-  delegate_all
+class ProjectDecorator <  BaseDecorator
+  delegate :id, :name, :tasks, :created_at, :tasks_count
+  
+  def created_at
+    object.created_at.strftime("%e %b %Y %H:%M")
+  end
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def tasks_count
+    object.tasks.length
+  end
 
 end

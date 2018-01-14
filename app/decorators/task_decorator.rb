@@ -1,13 +1,12 @@
-class TaskDecorator < Draper::Decorator
-  delegate_all
+class TaskDecorator <  BaseDecorator
+  delegate :id, :text, :comments, :created_at, :comments_count
+  
+  def created_at
+    object.created_at.strftime("%e %b %Y %H:%M")
+  end
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def comments_count
+    object.comments.length
+  end
 
 end

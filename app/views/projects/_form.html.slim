@@ -1,3 +1,6 @@
 = simple_form_for @project, remote: true do |form|
-    =form.label action="name"
-    =form.text_field :name, label: true, placeholder: "Название проекта", :class => "form-control"
+    .form-group
+        =form.label action="name"
+        =form.text_field :name, label: true, placeholder: "Название проекта", :class => "form-control"
+    .form-group
+        =form.button type="submit", class: "btn btn-primary", value: "Сохранить"

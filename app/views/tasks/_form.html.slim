@@ -8,3 +8,5 @@
     .form-group    
         =form.label action="project_id"
         =form.select(:project_id, options_for_select(current_user.projects.map{|project| [project.name, project.id]}),{}, { :class => 'form-control' })
+    .form-group
+        =form.button type="submit", class: "btn btn-primary", value: "Сохранить"
